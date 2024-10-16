@@ -6,11 +6,13 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        String txtFilePath = "src/DomainsList.txt";
+        String emailsTxt = "src/DomainsList.txt";
+        String whitelistTxt = "src/WhitelistedDomains.txt";
 
-        String[] emails = TxtToStringArrayConverter.convertTxtToStringArray(txtFilePath);
+        String[] emails = TxtToStringArrayConverter.convertTxtToStringArray(emailsTxt);
+        String[] whitelist = TxtToStringArrayConverter.convertTxtToStringArray(whitelistTxt);
 
-        List<String> topThreeDomains = TopDomainsFinder.getTopThreeDomains(emails);
+        List<String> topThreeDomains = TopDomainsFinder.getTopThreeDomains(emails, whitelist);
 
         ResultPrinter.printToConsole(topThreeDomains);
     }
