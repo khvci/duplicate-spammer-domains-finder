@@ -6,11 +6,14 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        String txtFilePath = "src/DomainsList.txt";
+        HashSet<String> emails = TxtToStringArrayConverter
+                .convertTxtToStringSet("src/DomainsList.txt");
 
-        String[] emails = TxtToStringArrayConverter.convertTxtToStringArray(txtFilePath);
+        HashSet<String> whitelist = TxtToStringArrayConverter
+                .convertTxtToStringSet("src/WhitelistedDomains.txt");
 
-        List<String> topThreeDomains = TopDomainsFinder.getTopThreeDomains(emails);
+        HashSet<String> topThreeDomains = TopDomainsFinder
+                .getTopThreeDomains(emails, whitelist);
 
         ResultPrinter.printToConsole(topThreeDomains);
     }
