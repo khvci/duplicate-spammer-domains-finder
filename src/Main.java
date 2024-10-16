@@ -9,10 +9,10 @@ public class Main {
         String emailsTxt = "src/DomainsList.txt";
         String whitelistTxt = "src/WhitelistedDomains.txt";
 
-        String[] emails = TxtToStringArrayConverter.convertTxtToStringArray(emailsTxt);
-        String[] whitelist = TxtToStringArrayConverter.convertTxtToStringArray(whitelistTxt);
+        HashSet<String> emails = TxtToStringArrayConverter.convertTxtToStringSet(emailsTxt);
+        HashSet<String> whitelist = TxtToStringArrayConverter.convertTxtToStringSet(whitelistTxt);
 
-        List<String> topThreeDomains = TopDomainsFinder.getTopThreeDomains(emails, whitelist);
+        HashSet<String> topThreeDomains = TopDomainsFinder.getTopThreeDomains(emails, whitelist);
 
         ResultPrinter.printToConsole(topThreeDomains);
     }

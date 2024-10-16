@@ -4,18 +4,20 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.HashSet;
 
 public class TxtToStringArrayConverter {
 
 
-    public static String[] convertTxtToStringArray(String txtFilePathString) {
+    public static HashSet<String> convertTxtToStringSet(String txtFilePathString) {
         Path txtFilePath = Paths.get(txtFilePathString);
 
         try {
-            return Files.readString(txtFilePath).split("\\s+");
+            return new HashSet<>(Arrays.asList(Files.readString(txtFilePath).split("\\s+")));
         } catch (IOException ex) {
             System.out.println(ex);
-            return new String[0];
+            return new HashSet<>();
         }
     }
 }
