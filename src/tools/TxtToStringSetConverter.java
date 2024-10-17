@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class TxtToStringArrayConverter {
+public class TxtToStringSetConverter {
 
 
     public static HashSet<String> convertTxtToStringSet(String txtFilePathString) {
