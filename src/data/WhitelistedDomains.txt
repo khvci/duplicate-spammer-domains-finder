@@ -1,1 +1,5 @@
 hotmail.com
+gmail.com
+yahoo.com
+outlook.com
+live.com
